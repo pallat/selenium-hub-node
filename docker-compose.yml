@@ -1,0 +1,37 @@
+version: '2'
+
+services:
+    hub:
+        image: hub
+        # expose:
+        ports:
+          - "4444:4444"
+    robot-chrome1:
+        build: robot-chrome
+        image: robot-chrome
+        links:
+          - hub
+        environment:
+          - HUB_PORT_4444_TCP_ADDR=hub
+          - HUB_PORT_4444_TCP_PORT=4444
+    robot-chrome2:
+        image: robot-chrome
+        links:
+          - hub
+        environment:
+          - HUB_PORT_4444_TCP_ADDR=hub
+          - HUB_PORT_4444_TCP_PORT=4444
+    robot-chrome3:
+        image: robot-chrome
+        links:
+          - hub
+        environment:
+          - HUB_PORT_4444_TCP_ADDR=hub
+          - HUB_PORT_4444_TCP_PORT=4444
+    robot-chrome4:
+        image: robot-chrome
+        links:
+          - hub
+        environment:
+          - HUB_PORT_4444_TCP_ADDR=hub
+          - HUB_PORT_4444_TCP_PORT=4444
